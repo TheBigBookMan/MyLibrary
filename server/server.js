@@ -1,6 +1,7 @@
 // connect up mysql
 const express = require("express");
-const mysql = require("mysql");
+const mysql = require("mysql2");
+require("dotenv").config();
 
 // use raw sql queries for the api (good practice)
 
@@ -12,6 +13,20 @@ const mysql = require("mysql");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+const db = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: process.env.DB_PASSWORD,
+    database: "my_library",
+});
+
+db.connect((err) => {
+    if (err) {
+        throw err;
+    }
+    console.log("MySQL Connected");
+});
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
