@@ -11,6 +11,10 @@ require("dotenv").config();
 
 //  each customised category will be a new created table, figure out how to do that with sql raw query
 
+// ?
+// ? the db folder will contiain just temporary sql queries to drop table and reset data, whenever change in model data, only need to run once when in production
+// ?
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 
