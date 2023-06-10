@@ -7,4 +7,7 @@ router
     .post(genreController.createGenre)
     .get(genreController.getAllGenres);
 
+// ? Route '/:genreId'
+router.route("/:genreId").get(genreController.getGenre);
+
 module.exports = router;
