@@ -53,6 +53,25 @@ const libraryHttp = {
             res.status(500).json({ message: "Could not get library" });
         }
     },
+    updateLibrary: async (req, res) => {
+        const sql = `UPDATE library SET name = ?, description = ? WHERE libraryId = ?`;
+        const { libraryName, description } = req.body;
+        const { libraryId } = req.params;
+        const params = [libraryName, description, libraryId];
+        try {
+            db.query(sql, params, (err, result) => {
+                if (err) {
+                    console.log(err);
+                    res.status(400).json({ error: err.message });
+                    return;
+                }
+                res.json(result);
+            });
+        } catch (err) {
+            console.log(err);
+            res.status(500).json({ message: "Could not update library." });
+        }
+    },
 };
 
 module.exports = libraryHttp;
