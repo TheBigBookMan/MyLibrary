@@ -1,6 +1,6 @@
 const CreateBookTable = `
     CREATE TABLE Book (
-        id INT PRIMARY KEY AUTO_INCREMENT,
+        bookId INT PRIMARY KEY AUTO_INCREMENT,
         title VARCHAR(255) NOT NULL,
         starRating INT,
         numRatings INT,
@@ -14,7 +14,7 @@ const CreateBookTable = `
 
 const CreateLibraryTable = `
     CREATE TABLE Library (
-        id INT PRIMARY KEY AUTO_INCREMENT,
+        libraryId INT PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(255) NOT NULL,
         numBooks INT,
         description VARCHAR(255)
@@ -23,14 +23,14 @@ const CreateLibraryTable = `
 
 const CreateAuthorTable = `
     CREATE TABLE Author (
-        id INT PRIMARY KEY AUTO_INCREMENT,
+        authorId INT PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(255) NOT NULL
     );
 `;
 
 const CreateGenreTable = `
     CREATE TABLE Genre (
-        id INT PRIMARY KEY AUTO_INCREMENT,
+        genreId INT PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(255) NOT NULL
     );
 `;

@@ -18,4 +18,18 @@ const CreateBookAuthorJunction = `
     );
 `;
 
-module.exports = [CreateBookLibraryJunction, CreateBookAuthorJunction];
+const CreateBookGenreJunction = `
+    CREATE TABLE BookGenre (
+        bookId INT,
+        genreId INT,
+        PRIMARY KEY (bookId, genreId),
+        FOREIGN KEY (bookId) REFERENCES Book(bookId),
+        FOREIGN KEY (genreId) REFERENCES Author(authorId)
+    );
+`;
+
+module.exports = [
+    CreateBookLibraryJunction,
+    CreateBookAuthorJunction,
+    CreateBookGenreJunction,
+];
