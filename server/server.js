@@ -1,6 +1,7 @@
 // connect up mysql
 const express = require("express");
 const db = require("./connection/connection");
+const routes = require("./routes");
 
 // use raw sql queries for the api (good practice)
 
@@ -26,7 +27,8 @@ db.connect((err) => {
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(routes);
 
 app.listen(PORT, () => {
-    console.log(`Server running on PORT: https://localhost:${PORT}`);
+    console.log(`Server running on PORT: http://localhost:${PORT}`);
 });
