@@ -16,7 +16,8 @@ const CreateLibraryTable = `
     CREATE TABLE Library (
         id INT PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(255) NOT NULL,
-        numBooks INT
+        numBooks INT,
+        description VARCHAR(255)
     );
 `;
 
