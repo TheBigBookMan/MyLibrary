@@ -2,8 +2,9 @@ const db = require("../connection/connection");
 
 const genreHttp = {
     createGenre: async (req, res) => {
-        const sql = `INSERT INTO genre (name) VALUES (?)`;
-        const params = req.body.genreName;
+        const { genreName, description } = req.body;
+        const sql = `INSERT INTO genre (name, description) VALUES (?, ?)`;
+        const params = [genreName, description];
         try {
             db.query(sql, params, (err, result) => {
                 if (err) {
