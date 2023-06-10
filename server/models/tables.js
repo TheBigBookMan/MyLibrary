@@ -21,4 +21,4 @@ const CreateLibraryTable = `
     );
 `;
 
-module.exports = { CreateBookTable, CreateLibraryTable };
+module.exports = [CreateBookTable, CreateLibraryTable];
