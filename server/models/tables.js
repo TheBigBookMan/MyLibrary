@@ -28,4 +28,16 @@ const CreateAuthorTable = `
     );
 `;
 
-module.exports = [CreateBookTable, CreateLibraryTable, CreateAuthorTable];
+const CreateGenreTable = `
+    CREATE TABLE Genre (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        name VARCHAR(255) NOT NULL
+    );
+`;
+
+module.exports = [
+    CreateBookTable,
+    CreateLibraryTable,
+    CreateAuthorTable,
+    CreateGenreTable,
+];
