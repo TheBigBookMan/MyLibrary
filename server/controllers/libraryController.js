@@ -36,6 +36,23 @@ const libraryHttp = {
             res.status(500).json({ message: "Could not get all libraries" });
         }
     },
+    getLibrary: async (req, res) => {
+        const sql = `SELECT libraryId, name as libraryName, numBooks, description FROM library WHERE libraryId = ?`;
+        const { libraryId } = req.params;
+        try {
+            db.query(sql, libraryId, (err, result) => {
+                if (err) {
+                    console.log(err);
+                    res.status(400).json({ error: err.message });
+                    return;
+                }
+                res.json(result);
+            });
+        } catch (err) {
+            console.log(err);
+            res.status(500).json({ message: "Could not get library" });
+        }
+    },
 };
 
 module.exports = libraryHttp;
