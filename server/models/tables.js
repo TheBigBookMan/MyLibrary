@@ -21,4 +21,11 @@ const CreateLibraryTable = `
     );
 `;
 
-module.exports = [CreateBookTable, CreateLibraryTable];
+const CreateAuthorTable = `
+    CREATE TABLE Author (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        name VARCHAR(255) NOT NULL
+    );
+`;
+
+module.exports = [CreateBookTable, CreateLibraryTable, CreateAuthorTable];
