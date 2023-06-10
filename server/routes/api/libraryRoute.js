@@ -8,6 +8,9 @@ router
     .get(libraryController.getAllLibraries);
 
 // ? Route '/:libraryId'
-router.route("/:libraryId").get(libraryController.getLibrary);
+router
+    .route("/:libraryId")
+    .get(libraryController.getLibrary)
+    .put(libraryController.updateLibrary);
 
 module.exports = router;
