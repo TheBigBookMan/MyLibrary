@@ -36,6 +36,25 @@ const genreHttp = {
             res.status(500).json({ message: "Could not connect." });
         }
     },
+    getGenre: async (req, res) => {
+        const sql = `SELECT genreId, name as genreName FROM genre WHERE genreId = ?`;
+        const params = req.params.genreId;
+        try {
+            db.query(sql, params, (err, result) => {
+                if (err) {
+                    console.log(err);
+                    res.status(400).json({ message: err.message });
+                    return;
+                }
+                res.json(result);
+            });
+        } catch (err) {
+            console.log(err);
+            res.status(500).json({
+                message: "Could not get genre, please try again.",
+            });
+        }
+    },
 };
 
 module.exports = genreHttp;
