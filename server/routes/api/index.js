@@ -5,7 +5,7 @@ const genreRoute = require("./genreRoute");
 const libraryRoute = require("./libraryRoute");
 
 router.use("/author", authorRoute);
-// router.use("/book", bookRoute);
+router.use("/book", bookRoute);
 router.use("/genre", genreRoute);
 router.use("/library", libraryRoute);
 
