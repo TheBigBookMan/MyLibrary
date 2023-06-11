@@ -72,6 +72,23 @@ const libraryHttp = {
             res.status(500).json({ message: "Could not update library." });
         }
     },
+    deleteLibrary: async (req, res) => {
+        const sql = `DELETE FROM library WHERE libraryId = ?`;
+        const { libraryId } = req.params;
+        try {
+            db.query(sql, libraryId, (err, result) => {
+                if (err) {
+                    console.log(err);
+                    res.status(400).json({ error: err.message });
+                    return;
+                }
+                res.json(result);
+            });
+        } catch (err) {
+            console.log(err);
+            res.status(500).json({ message: "Could not delete library" });
+        }
+    },
 };
 
 module.exports = libraryHttp;
